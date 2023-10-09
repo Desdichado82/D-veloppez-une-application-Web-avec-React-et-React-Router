@@ -1,22 +1,29 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Lodgement from './pages/Lodgement';
+import Propos from './pages/Propos';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Error from './components/Error';
 
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Error from './components/Error'
+const root = createRoot(document.getElementById('root'));
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+root.render(
   <React.StrictMode>
-   <Router>
+    <Router>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/Lodgement/:id" element={<Lodgement />} />
+        <Route path="/Propose" element={<Propos />} />
         <Route path="*" element={<Error />} />
-   
       </Routes>
       <Footer />
     </Router>
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);
+
+
+
