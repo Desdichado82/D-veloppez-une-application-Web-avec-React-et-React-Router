@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import colors from '../../utils/styles/colors'
 import "@fontsource/montserrat";
 import Card from '../../components/Card'
+import HomeBannerImg from '../../assets/homeBanner.png'
+
 
 
 const HomePage =  styled.main`
@@ -11,6 +13,42 @@ display:flex;
 flex-direction:column;
 background-color:${colors.backgroundLight};
 
+
+`
+
+const HomeBanner = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Ensure the parent div is a positioned container */
+  background-image: url(${HomeBannerImg});
+  background-size: cover;
+  background-position: center center;
+  height:224px;
+  border-radius:10px;
+  /* Other styles */
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius:10px;
+    background: rgba(0, 0, 0, 0.4); /* Adjust the color and transparency as needed */
+  }
+`;
+
+
+const HomeBannerText =  styled.p`
+
+font-family: 'Montserrat', sans-serif;
+font-size:2rem;
+color:white;
+font-weight:500;
+position: relative;
+  z-index: 1; /* Ensure the text is above the overlay */
 
 `
 
@@ -58,6 +96,12 @@ const Home = ()=>{
     return(
         <div>
             <HomePage>
+              <HomeBanner>
+                <HomeBannerText>
+                Chez vous, Partout et ailleurs
+                </HomeBannerText>
+              
+              </HomeBanner>
             <Gallery>
             {jsonData.map((item) => (
           <Card

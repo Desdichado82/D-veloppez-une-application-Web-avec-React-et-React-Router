@@ -7,6 +7,7 @@ import Propos from './pages/Propos';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Error from './components/Error';
+import '../src/global.css'; // Import the global CSS file
 
 const root = createRoot(document.getElementById('root'));
 
@@ -17,7 +18,7 @@ root.render(
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Lodgement/:id" element={<Lodgement />} />
-        <Route path="/Propose" element={<Propos />} />
+        <Route path="/Propos" element={<Propos />} />
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />
