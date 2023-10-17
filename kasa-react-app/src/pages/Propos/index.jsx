@@ -1,6 +1,7 @@
 
 import Accordion from '../../components/accordion';
 import styled from 'styled-components';
+import colors from '../../utils/styles/colors'
 import "@fontsource/montserrat";
 import ProposBannerImg from '../../assets/proposBanner.png';
 
@@ -10,6 +11,14 @@ import ProposBannerImg from '../../assets/proposBanner.png';
 
 const Propose =()=>{
   //Define sections for each topic
+
+  const ProposPage = styled.main`
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  padding:1rem;
+  background-color:${colors.backgroundLight};
+`;
 
   const ProposBanner = styled.div`
   display: flex;
@@ -91,10 +100,10 @@ justify-content:center;
   ];
 
   return(
-    <div>
-      <ProposBanner>
+   <ProposPage>
+        <ProposBanner>
                 <ProposBannerText>
-                Chez vous, Partout et ailleurs
+               
                 </ProposBannerText>
               
       </ProposBanner>
@@ -104,9 +113,11 @@ justify-content:center;
       <Accordion sections={serviceSections} />
       <Accordion sections={securitySections} />
     </Column>
+   </ProposPage> 
+  
       
      
-    </div>
+  
   )
 
 }

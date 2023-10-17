@@ -1,5 +1,5 @@
-import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types'; // Import PropTypes
 import colors from '../../utils/styles/colors';
 
 const Badge = styled.span`
@@ -19,6 +19,10 @@ const Tags = ({ tags }) => {
       ))}
     </div>
   );
+};
+
+Tags.propTypes = {
+  tags: PropTypes.arrayOf(PropTypes.string).isRequired, // Validate the 'tags' prop
 };
 
 export default Tags;

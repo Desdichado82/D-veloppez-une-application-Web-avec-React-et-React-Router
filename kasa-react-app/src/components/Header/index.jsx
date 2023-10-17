@@ -13,11 +13,22 @@ const KasaHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+  border-bottom: 1px solid transparent; /* Add an initially transparent border */
+
+  /* Media query for smaller screens (e.g., mobile devices) */
+  @media (max-width: 768px) {
+    flex-direction: row; /* Stack elements vertically */
+    align-items: flex-start; /* Align navigation links to the start */
+  }
 `;
 
 const KasaLogoHeader = styled.img`
   width: 210.32px;
   height: 68px;
+  @media (max-width: 768px) {
+    width:145px;
+    height: 46.88px
+  }
 `;
 
 const Nav = styled.nav`
@@ -35,6 +46,12 @@ const Nav = styled.nav`
       a{
         color: #ff6060ff;
         text-decoration:none;
+        border-bottom: 2px solid transparent; /* Add an initially transparent border bottom */
+        transition: border-bottom 0.2s; /* Add a smooth transition effect on hover */
+
+        &:hover {
+          border-bottom: 2px solid #ff6060ff ; /* Show the border bottom on hover */
+        }
       }
     }
   }

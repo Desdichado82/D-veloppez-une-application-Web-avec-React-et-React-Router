@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import '@fontsource/montserrat';
 
@@ -19,6 +20,10 @@ const CarouselImage = styled.img`
   width: 100%;
   height: 415px;
   object-fit: cover;
+  @media (max-width: 768px) {
+    height: 255px;
+  
+  }
 `;
 
 const NavigationOverlay = styled.div`
@@ -54,8 +59,8 @@ const SlideNumberOverlay = styled.div`
 
 const CarouselSlideNumber = styled.span`
   font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 1rem;
+  font-weight: 500;
   color: white;
 `;
 
@@ -74,6 +79,15 @@ const CarouselButton = styled.button`
   i {
     font-size: 4rem; /* Increased font size to 2rem for the material icons */
   }
+
+  @media (max-width: 768px) {
+    i {
+      font-size: 2rem; /* Increased font size to 2rem for the material icons */
+    }
+  
+  }
+
+  
 `;
 
 const ImageOverlay = styled.div`
@@ -82,7 +96,12 @@ const ImageOverlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.2); /* Adjust the alpha value here */
+  max-height:415px;
+  background-color: rgba(0, 0, 0, 0.1); /* Adjust the alpha value here */
+  @media (max-width: 768px) {
+    max-height:255px;
+  
+  }
 `;
 
 const Carousel = ({ images, interval = 5000 }) => {
@@ -129,6 +148,11 @@ const Carousel = ({ images, interval = 5000 }) => {
       </CarouselSlide>
     </CarouselContainer>
   );
+};
+
+Carousel.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.string).isRequired,
+  interval: PropTypes.number,
 };
 
 export default Carousel;

@@ -11,12 +11,14 @@ import HomeBannerImg from '../../assets/homeBanner.png'
 const HomePage =  styled.main`
 display:flex;
 flex-direction:column;
-background-color:${colors.backgroundLight};
+align-items:center;
+background-color:${colors.backgroundGrey};
 
 
 `
 
 const HomeBanner = styled.div`
+  width:100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,19 +42,21 @@ const HomeBanner = styled.div`
   }
 `;
 
-
-const HomeBannerText =  styled.p`
-
-font-family: 'Montserrat', sans-serif;
-font-size:2rem;
-color:white;
-font-weight:500;
-position: relative;
+const HomeBannerText = styled.p`
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  color: white;
+  font-weight: 500;
+  position: relative;
   z-index: 1; /* Ensure the text is above the overlay */
 
-`
+  @media (max-width: 768px) {
+    white-space: normal; /* Revert to the default white-space behavior */
+  }
+`;
 
 const Gallery =  styled.div`
+
 display: grid;
 grid-template-columns:repeat(3, 1fr);
 justify-content:center;
@@ -98,7 +102,7 @@ const Home = ()=>{
             <HomePage>
               <HomeBanner>
                 <HomeBannerText>
-                Chez vous, Partout et ailleurs
+                Chez vous,&nbsp; Partout et ailleurs
                 </HomeBannerText>
               
               </HomeBanner>

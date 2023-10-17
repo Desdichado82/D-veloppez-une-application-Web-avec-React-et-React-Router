@@ -7,6 +7,8 @@ const AccordionContainer = styled.div`
   // Add styles here
   
   width:100%;
+  display:flex;
+  
  
 `;
 
@@ -22,12 +24,12 @@ const Section = styled.div`
 
 const SectionTitle = styled.div`
   // Add styles here
-  width:100%;
+ 
   display:flex;
   justify-content:space-between;
   padding:5px;
   cursor: pointer;
-
+  border-radius:5px;
   align-items: center;
   font-family: 'Montserrat', sans-serif;
   background-color: ${colors.primary};
@@ -39,6 +41,12 @@ const SectionTitle = styled.div`
 const SectionContent = styled.div`
   // Add styles for section content here
   display: ${(props) => (props.$isOpen ? 'block' : 'none')};
+  border-radius:5px;
+  background-color: ${colors.backgroundGrey};
+  color:${colors.primary};
+  font-size:1rem;
+  font-weight:500;
+  
   padding: 10px;
 `;
 

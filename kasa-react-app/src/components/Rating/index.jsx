@@ -10,6 +10,11 @@ const StarRatingContainer = styled.div`
 
 const StarIcon = styled(FaStar)`
   color: ${(props) => (props.active === 'true' ? '#ff6060ff' : '#D3D3D3')};
+  font-size: 1.5rem; /* Default font size for regular screens */
+
+  @media (max-width: 768px) {
+    font-size: 1rem; /* Font size for mobile devices (adjust as needed) */
+  }
 `;
 
 const StarRating = ({ rating }) => {

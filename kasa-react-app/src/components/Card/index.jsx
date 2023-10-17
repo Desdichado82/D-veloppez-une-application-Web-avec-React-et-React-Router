@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import "@fontsource/montserrat";
 
 const CardWrapper = styled.div`
+ 
   display:flex;
   justify-content : flex start;
   align-items: flex-end;
@@ -14,7 +15,9 @@ const CardWrapper = styled.div`
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
   text-align: left;
   @media (max-width: 768px) {
+    max-width:335px;
     height: 240px; /* Adjust the height for smaller screens */
+  
   }
   
 `;
@@ -24,6 +27,7 @@ const CardTitle = styled.h2`
   margin: 0;
   color:white;
   font-family: 'Montserrat', sans-serif;
+  font-weight:500;
 `;
 
 const Card = ({ id, title, onClick }) => {

@@ -1,14 +1,21 @@
-import React from 'react';
+
+import PropTypes from 'prop-types'; // Import PropTypes
 import styled from 'styled-components';
+import colors from '../../utils/styles/colors'
+import "@fontsource/montserrat";
 
 const HostInfoContainer = styled.div`
   display: flex;
   align-items: center;
 `;
 
-const HostName = styled.div`
+const HostName = styled.span`
+  font-family: 'Montserrat', sans-serif;
+  font-size:1rem;
+  font-weight:500;
   font-weight: bold;
   margin-right: 10px;
+  color:${colors.primary};
 `;
 
 const HostProfilePic = styled.img`
@@ -31,6 +38,14 @@ const HostInfo = ({ hostData }) => {
     
     </HostInfoContainer>
   );
+};
+
+// Define PropTypes for hostData
+HostInfo.propTypes = {
+  hostData: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    picture: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default HostInfo;
