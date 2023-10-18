@@ -9,6 +9,7 @@ const CarouselContainer = styled.div`
   margin: 0px;
   padding: 0px;
   text-align: center; /* Center the content */
+  
 `;
 
 const CarouselSlide = styled.div`
