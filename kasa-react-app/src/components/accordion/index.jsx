@@ -1,58 +1,50 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import { FaChevronUp,FaChevronDown  } from 'react-icons/fa';
+import PropTypes from 'prop-types';
+import { FaChevronUp, FaChevronDown } from 'react-icons/fa';
 import colors from '../../utils/styles/colors';
 
+// Define a styled component for the container
 const AccordionContainer = styled.div`
-  // Add styles here
-  
-  width:100%;
-  display:flex;
-  
- 
+  width: 100%; // Set the width to 100%
+  display: flex; // Display children elements in a row
 `;
 
-
-
+// Define a styled component for individual sections
 const Section = styled.div`
-  // Add styles here
-  font-family: 'Montserrat', sans-serif;
-  width:100%;
-
- 
+  font-family: 'Montserrat', sans-serif; // Set the font family
+  width: 100%; // Set the width to 100%
 `;
 
+// Define a styled component for section titles
 const SectionTitle = styled.div`
-  // Add styles here
- 
-  display:flex;
-  justify-content:space-between;
-  padding:5px;
-  cursor: pointer;
-  border-radius:5px;
-  align-items: center;
-  font-family: 'Montserrat', sans-serif;
-  background-color: ${colors.primary};
-  color: white;
-
-  
+  display: flex; // Display elements in a row
+  justify-content: space-between; // Space between elements
+  padding: 5px; // Add padding
+  cursor: pointer; // Set the cursor to a pointer
+  border-radius: 5px; // Add border radius
+  align-items: center; // Align items in the center
+  font-family: 'Montserrat', sans-serif; // Set the font family
+  background-color: ${colors.primary}; // Set background color
+  color: white; // Set text color
 `;
 
+// Define a styled component for section content
 const SectionContent = styled.div`
-  // Add styles for section content here
-  display: ${(props) => (props.$isOpen ? 'block' : 'none')};
-  border-radius:5px;
-  background-color: ${colors.backgroundGrey};
-  color:${colors.primary};
-  font-size:1rem;
-  font-weight:500;
-  
-  padding: 10px;
+  display: ${(props) => (props.$isOpen ? 'block' : 'none')}; // Conditionally display content
+  border-radius: 5px; // Add border radius
+  background-color: ${colors.backgroundGrey}; // Set background color
+  color: ${colors.primary}; // Set text color
+  font-size: 1rem; // Set font size
+  font-weight: 500; // Set font weight
+  padding: 10px; // Add padding
 `;
 
+// Define the Accordion component
 function Accordion({ sections }) {
   const [openSections, setOpenSections] = useState({});
 
+  // Function to toggle section visibility
   const toggleSection = (sectionIndex) => {
     setOpenSections((prevState) => ({
       ...prevState,
@@ -60,20 +52,20 @@ function Accordion({ sections }) {
     }));
   };
 
+  // Function to render section content
   const renderContent = (data) => {
     if (Array.isArray(data)) {
-        console.log('Rendering Equipments:');
-        console.log(data);
+      console.log('Rendering Equipments:');
+      console.log(data);
       return (
         <ul>
           {data.map((equipment, index) => (
-           <li key={index}>{equipment}</li>
-        
+            <li key={index}>{equipment}</li>
           ))}
         </ul>
       );
     } else if (data) {
-        console.log('Rendering Default:');
+      console.log('Rendering Default:');
       console.log(data);
       return <p>{data}</p>;
     } else {
@@ -81,13 +73,14 @@ function Accordion({ sections }) {
     }
   };
 
+  // Render the Accordion
   return (
     <AccordionContainer>
       {sections.map((section, index) => (
         <Section key={index}>
           <SectionTitle onClick={() => toggleSection(index)}>
             {section.title}
-            {openSections[index] ?<FaChevronDown />  : <FaChevronUp />}
+            {openSections[index] ? <FaChevronDown /> : <FaChevronUp />}
           </SectionTitle>
           <SectionContent $isOpen={openSections[index]}>
             {renderContent(section.content)}
@@ -97,5 +90,15 @@ function Accordion({ sections }) {
     </AccordionContainer>
   );
 }
+
+// Define PropTypes for the Accordion component
+Accordion.propTypes = {
+  sections: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+    })
+  ).isRequired,
+};
 
 export default Accordion;

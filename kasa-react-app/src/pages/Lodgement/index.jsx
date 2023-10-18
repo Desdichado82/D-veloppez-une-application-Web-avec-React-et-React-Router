@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import colors from '../../utils/styles/colors';
@@ -10,6 +10,7 @@ import Tags from '../../components/Tags';
 
 import jsonData from '../../json/kasa_data.json';
 
+// Styled components for the LodgementPage
 const LodgementPage = styled.main`
   background-color: ${colors.backgroundLight};
   padding: 20px;
@@ -21,12 +22,12 @@ const LodgementContent = styled.div`
 
 const Grid = styled.div`
   display: grid;
-  padding:1rem;
+  padding: 1rem;
   gap: 1rem;
   grid-template-areas:
     'location host'
     'tags rating';
-    
+
   @media (max-width: 768px) {
     grid-template-areas:
       'location location'
@@ -36,16 +37,16 @@ const Grid = styled.div`
 `;
 
 const LocationArea = styled.div`
-display:flex;
-flex-direction:column;
+  display: flex;
+  flex-direction: column;
   grid-area: location;
 `;
 
 const HostArea = styled.div`
-display:flex;
-grid-area: host;
-justify-content:end;
-align-self:start;
+  display: flex;
+  grid-area: host;
+  justify-content: end;
+  align-self: start;
 `;
 
 const TagsArea = styled.div`
@@ -53,13 +54,13 @@ const TagsArea = styled.div`
 `;
 
 const RatingArea = styled.div`
-display:flex;
-grid-area: rating;
-justify-content: end;
-@media (max-width: 768px) {
-  justify-content: start;
+  display: flex;
+  grid-area: rating;
+  justify-content: end;
 
-}
+  @media (max-width: 768px) {
+    justify-content: start;
+  }
 `;
 
 const RowAccordion = styled.div`
@@ -77,7 +78,7 @@ const LodgementHTag = styled.h2`
   font-family: 'Montserrat', sans-serif;
   font-size: 2rem;
   font-weight: 500;
-  margin:0px;
+  margin: 0px;
   color: ${colors.primary};
 `;
 
@@ -94,6 +95,7 @@ const Lodgement = () => {
   const { id } = useParams();
   const [lodgementData, setLodgementData] = useState(null);
 
+  // Fetch lodgement data based on the route parameter
   useEffect(() => {
     const selectedLodgement = jsonData.find((item) => item.id === id);
 
@@ -108,6 +110,7 @@ const Lodgement = () => {
     return <div>Loading...</div>;
   }
 
+  // Sections for the Accordion component
   const descriptionSection = [
     {
       title: 'Description',
@@ -151,3 +154,14 @@ const Lodgement = () => {
 };
 
 export default Lodgement;
+
+/*
+This script defines a React component for a "Lodgement" page, which displays information about accommodations.
+It fetches data based on the route parameter using the useParams hook and renders the details of the selected lodgement.
+The component utilizes styled components for styling and lays out the content in a grid-based structure.
+It includes a carousel, host information, tags, and a rating component.
+The description and equipment information are displayed in an Accordion component.
+If the lodgement data is not available, it displays a "Loading..." message.
+
+*/
+
