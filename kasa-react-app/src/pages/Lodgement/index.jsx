@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import colors from '../../utils/styles/colors';
-import Accordion from '../../components/accordion';
+import Accordion from '../../components/accordion'; // Correct the import
 import Carousel from '../../components/carousel';
 import HostInfo from '../../components/HostInfo';
 import Rating from '../../components/Rating';
@@ -10,7 +10,6 @@ import Tags from '../../components/Tags';
 
 import jsonData from '../../json/kasa_data.json';
 
-// Styled components for the LodgementPage
 const LodgementPage = styled.main`
   background-color: ${colors.backgroundLight};
   padding: 20px;
@@ -45,8 +44,8 @@ const LocationArea = styled.div`
 const HostArea = styled.div`
   display: flex;
   grid-area: host;
-  justify-content: end;
-  align-self: start;
+  justify-content: flex-end; // Fix the value
+  align-self: flex-start; // Fix the value
 `;
 
 const TagsArea = styled.div`
@@ -56,10 +55,10 @@ const TagsArea = styled.div`
 const RatingArea = styled.div`
   display: flex;
   grid-area: rating;
-  justify-content: end;
+  justify-content: flex-end; // Fix the value
 
   @media (max-width: 768px) {
-    justify-content: start;
+    justify-content: flex-start; // Fix the value
   }
 `;
 
@@ -78,7 +77,7 @@ const LodgementHTag = styled.h2`
   font-family: 'Montserrat', sans-serif;
   font-size: 2rem;
   font-weight: 500;
-  margin: 0px;
+  margin: 0;
   color: ${colors.primary};
 `;
 
@@ -87,30 +86,32 @@ const LodgementPTag = styled.p`
   font-size: 1rem;
   font-weight: 500;
   color: ${colors.primary};
-  padding: 0px;
-  margin-top: 0px;
+  padding: 0;
+  margin-top: 0;
 `;
 
 const Lodgement = () => {
   const { id } = useParams();
   const [lodgementData, setLodgementData] = useState(null);
+  const navigate = useNavigate(); // Use the useNavigate hook
 
-  // Fetch lodgement data based on the route parameter
+
   useEffect(() => {
     const selectedLodgement = jsonData.find((item) => item.id === id);
 
     if (selectedLodgement) {
       setLodgementData(selectedLodgement);
     } else {
-      console.error('Error: Lodgement not found');
+      // Redirect to an error page if the Lodgement is not found
+     // Redirect to an error page if the Lodgement is not found
+     navigate('/error');
     }
-  }, [id]);
+  }, [id, navigate]);
 
   if (!lodgementData) {
     return <div>Loading...</div>;
   }
 
-  // Sections for the Accordion component
   const descriptionSection = [
     {
       title: 'Description',
@@ -154,6 +155,7 @@ const Lodgement = () => {
 };
 
 export default Lodgement;
+
 
 /*
 This script defines a React component for a "Lodgement" page, which displays information about accommodations.

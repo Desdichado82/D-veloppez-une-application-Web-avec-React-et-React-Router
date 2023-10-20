@@ -1,4 +1,4 @@
-import Accordion from '../../components/Accordion';
+import Accordion from '../../components/accordion';
 import styled from 'styled-components';
 import colors from '../../utils/styles/colors';
 import "@fontsource/montserrat";
@@ -82,7 +82,7 @@ const Propose = () => {
   const securitySections = [
     {
       title: 'Sécurité',
-      content: 'La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes que pour les voyageurs, chaque logement correspond aux critères de sécurité établis par nos services. En laissant une note aussi bien à l\'hôte qu'au locataire, cela permet à nos équipes de vérifier que les standards sont bien respectés. Nous organisons également des ateliers sur la sécurité domestique pour nos hôtes.',
+      content: 'La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes que pour les voyageurs, chaque logement correspond aux critères de sécurité établis par nos services. En laissant une note aussi bien à l\'hôte qu\'au locataire, cela permet à nos équipes de vérifier que les standards sont bien respectés. Nous organisons également des ateliers sur la sécurité domestique pour nos hôtes.',
     },
     // Add more sections related to security
   ];
