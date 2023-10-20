@@ -64,6 +64,3 @@ The component accepts id, title, and onClick as props, and it logs a message to 
 */
 
 
-/*Note: In React functional components, you don't need to specify PropTypes for internal variables like 
-jsonData, handleCardClick, and navigate. PropTypes are generally used for props passed to the component.
-*/
