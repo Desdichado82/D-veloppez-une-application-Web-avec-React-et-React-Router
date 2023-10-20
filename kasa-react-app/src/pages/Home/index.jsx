@@ -42,6 +42,7 @@ const HomeBanner = styled.div`
 
 const HomeBannerText = styled.p`
   font-family: 'Montserrat', sans-serif;
+  margin:1rem;
   font-size: 2rem;
   color: white;
   font-weight: 500;

@@ -38,6 +38,10 @@ const KasaFourZeroFourLink = styled(Link)`
   font-size: 1rem;
   color: ${colors.primary};
   text-decoration: none; /* Remove underline from the link */
+  &:hover,
+        &:active {
+          border-bottom: 2px solid #ff6060ff; // Show the border bottom on hover
+        }
 `;
 
 function Error() {

@@ -53,7 +53,8 @@ const Nav = styled.nav`
         border-bottom: 2px solid transparent; // Add an initially transparent border bottom
         transition: border-bottom 0.2s; // Add a smooth transition effect on hover
 
-        &:hover {
+        &:hover,
+        &:active {
           border-bottom: 2px solid #ff6060ff; // Show the border bottom on hover
         }
       }

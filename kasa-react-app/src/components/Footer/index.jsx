@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import colors from '../../utils/styles/colors'
+import { Link } from 'react-router-dom';
 import FooterLogo from '../../assets/kasalogoFooter.png'
 import "@fontsource/montserrat";
 
@@ -33,7 +34,8 @@ function Footer(){
     return(
         <>
            <KasaFooter>
-                <KasaLogoFooter src={FooterLogo}></KasaLogoFooter>
+           <Link to="/"><KasaLogoFooter src={FooterLogo}></KasaLogoFooter>
+           </Link>
                 <KasaCopyright>© 2020 Kasa. All rights reserved</KasaCopyright>
            </KasaFooter>
         </>

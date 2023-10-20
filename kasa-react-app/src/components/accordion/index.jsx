@@ -55,8 +55,7 @@ function Accordion({ sections }) {
   // Function to render section content
   const renderContent = (data) => {
     if (Array.isArray(data)) {
-      console.log('Rendering Equipments:');
-      console.log(data);
+     
       return (
         <ul>
           {data.map((equipment, index) => (
@@ -65,8 +64,7 @@ function Accordion({ sections }) {
         </ul>
       );
     } else if (data) {
-      console.log('Rendering Default:');
-      console.log(data);
+      
       return <p>{data}</p>;
     } else {
       return null; // Return null for cases where data is undefined

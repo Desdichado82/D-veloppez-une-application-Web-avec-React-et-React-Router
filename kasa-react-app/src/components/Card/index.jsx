@@ -32,7 +32,7 @@ const CardTitle = styled.h2`
 const Card = ({ id, title, onClick }) => {
   // Function to handle card click
   const handleClick = () => {
-    console.log('Card clicked'); // Log a message to the console
+   
     if (onClick) {
       onClick(id); // Call the onClick function with the card's ID if provided
     }
