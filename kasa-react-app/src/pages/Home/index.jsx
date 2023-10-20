@@ -123,3 +123,34 @@ const Home = () => {
 
 // Export the Home component
 export default Home;
+
+/*
+This code represents the homepage of the application.
+ It fetches JSON data, displays a banner with a greeting, and populates a gallery of cards based on the retrieved data.
+ Users can click on a card to view more details about a lodging. 
+The code demonstrates the use of React Hooks and navigation within a React application
+*/
+
+/**
+ 
+Data Path: The dataPath constant is defined to store the path to a JSON data file. 
+This path is calculated relative to the current module's URL using the URL constructor.
+
+Component Setup: The Home component is created as a functional component.
+
+React Hooks: The component utilizes React Hooks, such as useState, useEffect, and useNavigate, for state management,
+ handling side effects, and navigation.
+
+Data Fetching: Inside the useEffect hook, a fetch request is made to the specified dataPath to retrieve JSON data.
+ If the network request is successful (response.ok), the JSON data is parsed and stored in the component's state using the setJsonData function.
+
+Card Click Handler: The handleCardClick function is defined to handle the click event on a card. 
+When a card is clicked, this function navigates to a detailed view of the corresponding lodging. It uses the navigate function from the useNavigate hook to change the URL to /lodgement/:id, where :id is the unique identifier of the lodging.
+
+Rendering: The Home component renders the following elements:
+
+A home page container (HomePage).
+A banner with text.
+A gallery (Gallery) that maps over the JSON data and displays a series of cards. Each card is created using the Card component and is associated with a specific lodging. When a card is clicked, the handleCardClick function is called to navigate to the lodging's detailed view.
+
+*/

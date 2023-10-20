@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+
 import "@fontsource/montserrat";
 
 // Define a styled component for the card wrapper
@@ -46,7 +48,12 @@ const Card = ({ id, title, onClick }) => {
   );
 };
 
-
+// Define prop types for the Card component
+Card.propTypes = {
+  id: PropTypes.number, // Example: ID should be a number and is required
+  title: PropTypes.string.isRequired, // Example: title should be a string and is required
+  onClick: PropTypes.func, // Example: onClick is a function (optional)
+};
 
 export default Card;
 
